@@ -7,7 +7,7 @@ const posts = await getCollection('writing');
 type Props = CollectionEntry<'writing'>;
 
 const { slug } = Astro.params;
-const post = posts.find((page) => page.slug === slug);
+const post = posts.find((page: Props) => page.slug === slug);
 
 if (!post) return Astro.redirect('/404');
 

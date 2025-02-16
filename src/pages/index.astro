@@ -22,57 +22,53 @@ import RootLayout from '@layouts/root-layout.astro';
 			class='flex flex-col w-full gap-6 max-w-xl lowercase'>
 			<Header />
 			<h1
-				class='w-full text-start text-[min(12vw,72px)] font-medium leading-[0.9] tracking-[-2px] sm:tracking-[-4px]'>
-				meet sanju
-				<span class='text-gray-500 dark:text-gray-400'>designer founder</span>
+				class='w-full text-start text-[min(12vw,72px)] font-medium leading-[1] tracking-[-2px] sm:tracking-[-4px]'>
+				我是 ec50n9
+				<br />
+				<span class='text-gray-500 dark:text-gray-400'>全栈开发工程师</span>
 			</h1>
 
 			<div
 				id='about'
 				class='flex flex-col gap-4'>
 				<div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
-					I run <a
-						href='https://thisux.com'
-						target='_blank'
-						class='underline underline-offset-2'
-						>ThisUX</a
-					>, a design-led product studio. We make things that work. For years, I
-					wore many hats. Now I’m doing my own thing.
+					我是一名自由职业的全栈开发工程师，专注于构建实用且美观的网站和应用程序。
 				</div>
 
-				<div class='font-medium text-lg text-gray-700 dark:text-gray-300'>
-					I work on ideas like
-					<div class='flex flex-wrap gap-2 mt-5'>
-						{
-							products.map((product) => (
-								<a
-									href={product.url}
-									target='_blank'
-									class='p-2 rounded-full gap-2 flex-wrap hover:rotate-1 hover:scale-105 transition-all duration-300 flex items-center justify-center bg-gray-100 hover:bg-gray-200 dark:bg-[#1F1F1F] dark:hover:bg-[#2F2F2F]'>
-									<img
-										src={product.image}
-										alt={product.name}
-										class='size-9'
-									/>
-									<span class='mr-2'>{product.name}</span>
-								</a>
-							))
-						}
+				{products.length > 0 && (
+					<div class='font-medium text-lg text-gray-700 dark:text-gray-300'>
+						我致力于开发的项目包括
+						<div class='flex flex-wrap gap-2 mt-5'>
+							{
+								products.map((product) => (
+									<a
+										href={product.url}
+										target='_blank'
+										class='p-2 rounded-full gap-2 flex-wrap hover:rotate-1 hover:scale-105 transition-all duration-300 flex items-center justify-center bg-gray-100 hover:bg-gray-200 dark:bg-[#1F1F1F] dark:hover:bg-[#2F2F2F]'>
+										<img
+											src={product.image}
+											alt={product.name}
+											class='size-9'
+										/>
+										<span class='mr-2'>{product.name}</span>
+									</a>
+								))
+							}
+						</div>
 					</div>
+				)}
+
+				<div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
+					我与创始人和企业主合作，一起构建最小可行产品（MVP）、完整产品，或修复用户体验问题。从设计到代码开发，我们提供全方位服务。
 				</div>
 
 				<div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
-					I team up with founders and business owners. We build MVPs, full
-					products, or fix broken experiences. Design to code, we do it all.
-				</div>
-
-				<div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
-					Want to chat?
+					要认识一下吗？
 					<a
-						href='https://cal.com/imsanju/15min'
+						href='https://cal.com/ec50n9/15min'
 						target='_blank'
 						class='underline underline-offset-2'>
-						schedule a call
+						联系我
 					</a>
 				</div>
 			</div>

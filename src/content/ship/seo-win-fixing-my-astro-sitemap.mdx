@@ -1,13 +1,13 @@
 ---
-title: Oops! I Forgot My Website Sitemap (But Now It's Fixed!)
-description: So, guess what? I totally spaced on adding a sitemap to my website. A sitemap helps search engines find all my awesome content, which is kind of important!  This post will show you how I easily set it up with Astro, so you don't make the same mistake I did.
+title: 糟糕！我忘记了网站的站点地图（但现在已经修复了！）
+description: 你猜怎么着？我完全忘记给我的网站添加站点地图了。站点地图可以帮助搜索引擎找到我所有的精彩内容，这一点非常重要！这篇文章将向你展示我是如何使用 Astro 轻松设置它的，这样你就不会犯和我一样的错误。
 category: 'personal'
 ship_count: 1
 pubDate: 'June 1 2024'
 updatedDate: 'June 1 2024'
 ---
 
-Astro has a built-in sitemap generator, so I just had to add the following to my `astro.config.mjs`:
+Astro 有一个内置的站点地图生成器，所以我只需要在 `astro.config.mjs` 中添加以下内容：
 
 ```ts
 export default defineConfig({
@@ -26,7 +26,7 @@ export default defineConfig({
 });
 ```
 
-I also added a `robots.txt` file to my website. I created a new file `src/pages/robots.txt.ts` with the following content:
+我还给网站添加了一个 `robots.txt` 文件。我在 `src/pages/robots.txt.ts` 创建了一个新文件，内容如下：
 
 ```ts
 import type { APIRoute } from 'astro';
@@ -47,7 +47,7 @@ export const GET: APIRoute = () => {
 };
 ```
 
-I also added the following to my `package.json`:
+我还在 `package.json` 中添加了以下内容：
 
 ```json
 {
@@ -57,17 +57,17 @@ I also added the following to my `package.json`:
 }
 ```
 
-Now, whenever I run `npm run build`, Astro will generate a sitemap for me. I also submitted the sitemap to Google Search Console to help them index my content faster.
+现在，每当我运行 `npm run build` 时，Astro 就会为我生成一个站点地图。我还将站点地图提交到了 Google Search Console，以帮助他们更快地索引我的内容。
 
-See you in the next ship!, 
+下一个项目见！
 
 import { EndCTA } from "@components/cta";
 
 <EndCTA
-	title={`Need help with your website SEO? Let's chat!`}
-	cta_label='Book a call'
+	title={`需要帮助优化你的网站 SEO 吗？让我们聊聊！`}
+	cta_label='预约通话'
 	bg_colour='yellow'
 />
 
 
-**P.S.** follow me on [Twitter](https://x.com/spikeysanju) i document my journey as a designer, developer and startup founder!
+**附言：** 在 [Twitter](https://x.com/spikeysanju) 上关注我，我会在那里记录我作为设计师、开发者和创业者的旅程！

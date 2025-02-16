@@ -1,54 +1,53 @@
 ---
-title: Spotlight – Discover Great Links
-description: I made a tool that finds cool links from Reddit, Hacker News, and Wikipedia. Launched it on Twitter and Discord. Got 1,000 visitors in 24 hours.
+title: Spotlight – 发现精彩链接
+description: 我开发了一个工具，可以从 Reddit、Hacker News 和维基百科发现有趣的链接。在 Twitter 和 Discord 上发布后，24小时内获得了1000名访客。
 category: 'fun'
 ship_count: 5
 pubDate: 'Sept 9 2024'
 updatedDate: 'Sept 9 2024'
 ---
 
+**背景：**
 
-**Context:**
+8月24日(周六)晚上，我们 [GDG Chennai](https://gdg.community.dev/gdg-chennai/) 在 Discord 上与社区成员进行了线上交流。我们讨论并分享了一些很酷的发现，比如文章、工具、新的开源仓库、免费工具等。
 
-Last night, on Saturday, August 24th, we at [GDG Chennai](https://gdg.community.dev/gdg-chennai/) caught up with community members virtually on Discord. We discussed and shared cool finds like articles, tools, new open-source repositories, free tools, etc. 
+> 其中一位成员问我是如何收集这么多链接的。
 
-> One of the members asked me how I curate so many links. 
+我解释说我经常阅读 Hacker News 和 "internet is beautiful" 子版块来获取信息。
 
-I explained that I used to read Hacker News and the "internet is beautiful" sub as my source of info.
+之后我们一起浏览了这些子版块并结束了会议。当晚，在浏览 "internet is beautiful" 时，我突发奇想，想要创建一个网站，只需点击一个按钮就能随机显示来自 Hacker News 和 Reddit 的帖子及其链接。
 
-We then explored those subreddits and ended our meeting. Later that night, while browsing through the "internet is beautiful" sub, I got curious about creating a website that would display random Hacker News and Reddit posts with their URLs whenever I clicked a button.
+我立即打开终端，创建了一个新的 SvelteKit 项目，首先开始开发 API。
 
-I quickly opened my terminal, created a new SvelteKit project, and started working on the API first.
+一小时内，我就完成了一个基本可用的网站。作为一名设计师，我自然想要发布一个设计精良的产品，所以我又花了30分钟来完善UI和动画效果。
 
-Within an hour, I was able to complete a decent-enough website to launch. As a designer, I naturally wanted to ship a well-designed product, so I spent another 30 minutes polishing the UI and animations.
-
-Everything worked well, so I deployed my app to Cloudflare, updated the readme, and posted a tweet launching it.
+一切运行良好，于是我将应用部署到 Cloudflare，更新了 readme，并发了一条推文宣布上线。
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Looking for interesting stuff online? <br /><br />Try my new tool, Spotlight! It finds cool links from Reddit and Hacker News<br /><br />Try → <a href="https://t.co/pc9RdirMEk">https://t.co/pc9RdirMEk</a> <a href="https://t.co/1wN6RhsyfL">pic.twitter.com/1wN6RhsyfL</a></p>&mdash; Sanju (@spikeysanju) <a href="https://twitter.com/spikeysanju/status/1827537680084955396?ref_src=twsrc%5Etfw">August 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-I also posted it on the GDG Chennai Discord server.
+我也在 GDG Chennai Discord 服务器上发布了这个消息。
 ![Screenshot of spotlight announcement on GDG Discord server](https://assets.sanju.sh/ships/spotlight-announcement-on-discord.png)
 
-After publishing across different reddit subs, Within a short time, I got over 1,000 visitors! It was fantastic.
+在不同的 reddit 版块发布后，很快就获得了超过1000名访客！这太棒了。
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">After 24hrs launching <a href="https://t.co/pc9RdirMEk">https://t.co/pc9RdirMEk</a><br /><br />Views: 960<br />Visits: 705<br />Visitors: 676<br />Bounce rate: 77%<br />Visit duration: 44s <a href="https://t.co/JYzZnzif3p">pic.twitter.com/JYzZnzif3p</a></p>&mdash; Sanju (@spikeysanju) <a href="https://twitter.com/spikeysanju/status/1827923044129808777?ref_src=twsrc%5Etfw">August 26, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-I use this tool whenever I get bored and want to find some cool websites, tools, or articles to read.
+每当我感到无聊，想找一些有趣的网站、工具或文章阅读时，我就会使用这个工具。
 
-After launching, I received many positive comments and feedback.
+发布后，我收到了许多积极的评论和反馈。
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It&#39;s a win-win! 🎉<a href="https://t.co/pc9RdireOM">https://t.co/pc9RdireOM</a> <a href="https://t.co/DRdJtqLqVc">pic.twitter.com/DRdJtqLqVc</a></p>&mdash; Sanju (@spikeysanju) <a href="https://twitter.com/spikeysanju/status/1828125019559371211?ref_src=twsrc%5Etfw">August 26, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-One user who reached out to me sent a 1:50 mins audio feedback. I appreciated it and realized the need for a preference option to select topics before generating suggestions.
+一位联系我的用户发来了一段1分50秒的语音反馈。我很感谢这个反馈，并意识到需要添加一个偏好选项，让用户在生成建议之前可以选择主题。
 
 ![Screenshot of WhatsApp conversation](https://assets.sanju.sh/ships/whatsapp-conversation.png)
 
-It made sense, so after an hour, I added a preference feature and shared a tweet about it.
+这很有道理，所以一小时后，我添加了偏好功能并发推文分享了这个更新。
 
 ---
 
-**Update, August 27th:** I've now added preferences. Previously, [spotlight.thisux.com](spotlight.thisux.com) could only get articles from Hacker News or Reddit (r/internetisbeautiful). 
+**更新，8月27日：** 我现在添加了偏好设置。此前，[spotlight.thisux.com](spotlight.thisux.com) 只能从 Hacker News 或 Reddit (r/internetisbeautiful) 获取文章。
 
-Now, I've added a preferences tab with many subreddits for different genres. You can choose one and start clicking the button to get suggestions.
+现在，我添加了一个偏好设置标签，包含了多个不同类型的子版块。你可以选择一个，然后开始点击按钮获取建议。
 
 <blockquote class="twitter-tweet" data-media-max-width="560">
   <p lang="en" dir="ltr">
@@ -64,9 +63,10 @@ Now, I've added a preferences tab with many subreddits for different genres. You
   <a href="https://twitter.com/spikeysanju/status/1828382706004304210?ref_src=twsrc%5Etfw">August 27, 2024</a>
 </blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 ---
 
-**Update, September 7th:** Now you can get support for finding random Wikipedia articles.
+**更新，9月7日：** 现在你可以获取随机的维基百科文章了。
 
 <blockquote class="twitter-tweet">
   <p lang="en" dir="ltr">
@@ -80,18 +80,18 @@ Now, I've added a preferences tab with many subreddits for different genres. You
 </blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-You can also try [spotlight.thisux.com](http://spotlight.thisux.com) and let me know your thoughts.
+你可以试用 [spotlight.thisux.com](http://spotlight.thisux.com) 并告诉我你的想法。
 
-It's open-source [Spotlight Repository](https://github.com/thisuxhq/spotlight).
+这是一个开源项目 [Spotlight Repository](https://github.com/thisuxhq/spotlight)。
 
 import { EndCTA } from "@components/cta";
 
 <EndCTA
-	title={`Feeling stuck?, We've helped countless businesses grow with our design and development services. Let's chat!`}
-	cta_label='Book a call'
+	title={`遇到困难了吗？我们已经帮助过无数企业通过我们的设计和开发服务成长。让我们聊聊吧！`}
+	cta_label='预约通话'
 	bg_colour='yellow'
 />
 
-See you in the next ship!, 
+下次再见！
 
-**P.S.** follow me on [Twitter](https://x.com/spikeysanju) i document my journey as a designer, developer and startup founder!
+**附：** 在 [Twitter](https://x.com/spikeysanju) 上关注我，我会分享我作为设计师、开发者和创业者的历程！
