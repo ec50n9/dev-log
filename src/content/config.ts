@@ -25,6 +25,7 @@ const writing = defineCollection({
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
 		readingTime: z.number().optional(),
+		isPrivate: z.boolean().optional(),
 	}),
 });
 
