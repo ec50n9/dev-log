@@ -19,25 +19,39 @@ import RootLayout from '@layouts/root-layout.astro';
 	<RootLayout>
 		<div
 			id='navbar+title'
-			class='flex flex-col w-full gap-6 max-w-xl lowercase'>
+			class='flex flex-col w-full gap-6 max-w-xl'>
 			<Header />
 			<h1
-				class='w-full text-start text-[min(12vw,72px)] font-medium leading-[1] tracking-[-2px] sm:tracking-[-4px]'>
-				我是 ec50n9
+				class='w-full text-start text-[min(12vw,72px)] font-medium leading-[1.1] tracking-[-2px] sm:tracking-[-4px] lowercase'>
+				👋 我是 e9
 				<br />
-				<span class='text-gray-500 dark:text-gray-400'>全栈开发工程师</span>
+				<span class='text-gray-500 dark:text-gray-400'>🌾 数字游牧园丁</span>
 			</h1>
 
 			<div
 				id='about'
 				class='flex flex-col gap-4'>
 				<div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
-					我是一名自由职业的全栈开发工程师，专注于构建实用且美观的网站和应用程序。
+					一个带着键盘流浪的代码园丁 🚜
+					<br/>
+					擅长在咖啡厅/稻田边/山野帐篷里培育数字作物 🌱
+				</div>
+
+				<div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
+					<span class="block mb-3 text-xl font-semibold">🛠️ 技术栈</span>
+					<ul class="list-disc list-inside space-y-1 ml-2">
+						<li>前端: Vue3/React, TypeScript, Webpack/Vite</li>
+						<li>样式: TailwindCSS, UnoCSS, Sass, CSS Modules</li>
+						<li>后端: Node.js, Express, Tinyhttp, Nest.js, Prisma ORM</li>
+						<li>数据库: PostgreSQL, MySQL, MongoDB, Redis</li>
+						<li>跨端: React Native, Kotlin Multiplatform, Tauri, Electron, Next.js SSR</li>
+						<li>DevOps: AWS, Docker, GitHub Actions CI/CD</li>
+					</ul>
 				</div>
 
 				{products.length > 0 && (
 					<div class='font-medium text-lg text-gray-700 dark:text-gray-300'>
-						我致力于开发的项目包括
+						<span class="block mb-3 text-xl font-semibold">💻 正在孵化的数字宠物</span>
 						<div class='flex flex-wrap gap-2 mt-5'>
 							{
 								products.map((product) => (
@@ -59,17 +73,21 @@ import RootLayout from '@layouts/root-layout.astro';
 				)}
 
 				<div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
-					我与创始人和企业主合作，一起构建最小可行产品（MVP）、完整产品，或修复用户体验问题。从设计到代码开发，我们提供全方位服务。
+					<span class="block mb-3 text-xl font-semibold">🤝 接单范围（正经版）</span>
+					<ul class="list-disc list-inside space-y-1 mt-2 ml-2">
+						<li>从「老板画饼」到「真实可啃」的全流程实现</li>
+						<li>让应用在「桌面-手机-浏览器」玩三人成虎</li>
+						<li>系统优化：把「卡成 PPT」变成「德芙般丝滑」</li>
+					</ul>
 				</div>
 
 				<div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
-					要认识一下吗？
-					<a
-						href='https://cal.com/ec50n9/15min'
-						target='_blank'
-						class='underline underline-offset-2'>
-						联系我
-					</a>
+					<span>🌱 想一起种点有趣的数字作物？</span>
+					<button
+						id="wechat-btn"
+						class='underline underline-offset-2 cursor-pointer'>
+						👉🗝 农场钥匙
+					</button>
 				</div>
 			</div>
 
@@ -87,5 +105,39 @@ import RootLayout from '@layouts/root-layout.astro';
 				}
 			</div>
 		</div>
+
+		<!-- 微信二维码弹窗 -->
+		<div
+			id="wechat-modal"
+			class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden"
+			onclick="this.classList.add('hidden')"
+		>
+			<div
+				class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-sm w-full mx-4"
+				onclick="event.stopPropagation()"
+			>
+				<div class="text-center mb-4">
+					<h3 class="text-lg font-medium mb-2">👽 异星交流通道</h3>
+					<p class="text-sm text-gray-500 dark:text-gray-400">扫这个二维码，开启我们的第一次接触 👾</p>
+				</div>
+				<img
+					src="/images/wechat-qr.png"
+					alt="微信二维码"
+					class="w-full rounded-lg"
+				/>
+				<button
+					onclick="document.getElementById('wechat-modal').classList.add('hidden')"
+					class="mt-4 w-full py-2 px-4 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 rounded-lg transition-colors"
+				>
+					🚪 关闭传送门
+				</button>
+			</div>
+		</div>
+
+		<script>
+			document.getElementById('wechat-btn')?.addEventListener('click', () => {
+				document.getElementById('wechat-modal')?.classList.remove('hidden');
+			});
+		</script>
 	</RootLayout>
 </html>
