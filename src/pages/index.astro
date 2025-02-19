@@ -30,7 +30,7 @@ import RootLayout from '@layouts/root-layout.astro';
 
 			<div
 				id='about'
-				class='flex flex-col gap-4'>
+				class='flex flex-col gap-6'>
 				<div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
 					一个带着键盘流浪的代码园丁 🚜
 					<br/>
@@ -38,8 +38,8 @@ import RootLayout from '@layouts/root-layout.astro';
 				</div>
 
 				<div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
-					<span class="block mb-3 text-xl font-semibold">🛠️ 技术栈</span>
-					<ul class="list-disc list-inside space-y-1 ml-2">
+					<span class="block mb-2 text-xl font-semibold">🛠️ 技术栈</span>
+					<ul class="list-disc space-y-1 ml-2">
 						<li>前端: Vue3/React, TypeScript, Webpack/Vite</li>
 						<li>样式: TailwindCSS, UnoCSS, Sass, CSS Modules</li>
 						<li>后端: Node.js, Express, Tinyhttp, Nest.js, Prisma ORM</li>
@@ -51,7 +51,7 @@ import RootLayout from '@layouts/root-layout.astro';
 
 				{products.length > 0 && (
 					<div class='font-medium text-lg text-gray-700 dark:text-gray-300'>
-						<span class="block mb-3 text-xl font-semibold">💻 正在孵化的数字宠物</span>
+						<span class="block mb-2 text-xl font-semibold">💻 正在孵化的数字宠物</span>
 						<div class='flex flex-wrap gap-2 mt-5'>
 							{
 								products.map((product) => (
@@ -73,8 +73,8 @@ import RootLayout from '@layouts/root-layout.astro';
 				)}
 
 				<div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
-					<span class="block mb-3 text-xl font-semibold">🤝 接单范围（正经版）</span>
-					<ul class="list-disc list-inside space-y-1 mt-2 ml-2">
+					<span class="block mb-2 text-xl font-semibold">🤝 接单范围（正经版）</span>
+					<ul class="list-disc space-y-1 ml-2">
 						<li>从「老板画饼」到「真实可啃」的全流程实现</li>
 						<li>让应用在「桌面-手机-浏览器」玩三人成虎</li>
 						<li>系统优化：把「卡成 PPT」变成「德芙般丝滑」</li>
