@@ -2,7 +2,7 @@
 	"name": "xxsong.com",
 	"type": "module",
 	"version": "0.0.1",
-	"packageManager": "pnpm@10.4.1",
+	"packageManager": "pnpm@10.5.0",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
