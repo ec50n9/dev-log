@@ -1,32 +1,37 @@
 ---
-title: "meet ec50n9, a full-stack software engineer"
-description: "I run ThisUX, a design-led product studio. I'm working on ideas like sticai.com, abogrow.com, uiino.com, supaprompts.com, ffmpeg.info, and more. Always tinkering."
+title: "认识 ec50n9，一位全栈软件工程师"
+description: "一位热爱技术的全栈工程师，时常会折腾一些好玩的东西。"
 pubDate: 'Sept 1 2024'
 ---
 
-I run [ThisUX](https://thisux.com), a design-led product studio. We make things that work.
+## 关于我
 
-For years, I wore many hats. Now I'm doing my own thing.
+我是一位热爱技术的全栈工程师，擅长前端开发与全栈协作，时常会折腾一些好玩的东西。
 
-I'm working on ideas like:
+### 🚀 技术能力
 
-- [Dun](https://dunsuite.com)
-- [Fli](https://fli.so)
-- [Uiino](https://uiino.com)
-- [SticAi](https://sticai.com) 
-- [aboGrow](https://abogrow.com) 
-- [ffmpeg info](https://ffmpeg.info)
-- [Glance](https://glance.sticai.com)
-- [Spotlight](https://spotlight.thisux.com)
+- **前端开发**：掌握 `HTML5`/`CSS3` 及 `JavaScript`/`TypeScript` 核心技术，熟悉 `Vue3`/`Vue2` 和 `React`/`Next.js` 框架，有丰富的 `Uni-app` 多端开发经验
+- **全栈协作**：熟悉 `Node.js` 全栈开发，了解 `Java`/`SpringBoot` 技术栈，具备 `MySQL`/`MongoDB`/`Redis` 数据库经验
+- **工程实践**：熟练使用 `Sass`、`TailwindCSS`/`UnoCSS`，有 `Tauri`/`Electron` 跨平台应用开发经验，熟悉 `Git` 协作流程
 
+### 💼 工作经历
 
+曾在亚哲科技担任前端开发工程师（2023.02 - 2025.02），主导多个核心系统开发，包括多租户驾校后台管理系统、智能客服系统等。负责全栈开发工作，基于 `Node.js` + `UniCloud` + `MongoDB` 技术栈进行系统设计。
 
-And more. Always tinkering.
+### 🎓 教育背景
 
-I team up with founders and business owners. We build MVPs, full products, or fix broken experiences. Design to code, we do it all.
+毕业于广东行政职业学院软件技术专业（2020.10 - 2023.01），曾担任计算机协会会长。
 
-Our secret? We create systems that work, no matter the tech or problem.
+## 项目作品
 
-I'm big on [open source](https://github.com/spikeysanju) too. I contribute code and speak at conferences.
+我参与和独立开发了多个项目：
 
-Want to chat? [Drop me a line](mailto:work@sanju.sh?subject=Let's%20Collaborate&body=Hi%20Sanju,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20a%20potential%20collaboration%20with%20you.%0D%0A%0D%0ABest%20regards,%0D%0A%5BYour%20Name%5D).
+- **铜都工业互联网平台**：面向制造业企业的综合管理平台
+- **Chat2Excel**：基于自然语言和图片识别的智能 Excel 生成工具
+- **番茄派**：小程序商城+后台管理系统
+- **企业官网**：基于 Next.js 构建的高性能企业官网
+- **课堂助手**：跨平台桌面应用，帮助教师记录学生成绩及课堂互动
+
+## 联系我
+
+想要聊聊技术或合作？[给我发邮件](mailto:work@sanju.sh?subject=合作咨询&body=你好,%0D%0A%0D%0A我想与你讨论一个潜在的合作机会。%0D%0A%0D%0A祝好,%0D%0A%5B你的名字%5D)。

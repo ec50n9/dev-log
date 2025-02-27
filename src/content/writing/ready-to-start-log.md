@@ -1,6 +1,6 @@
 ---
-title: "终于部署好博客了！"
-description: "从 Vercel 到 Cloudflare：一次意外的部署之旅"
+title: "Vercel 与 Cloudflare 对比"
+description: "Vercel与Cloudflare部署平台对比：功能、成本与可访问性分析"
 pubDate: '2025-02-19'
 ---
 

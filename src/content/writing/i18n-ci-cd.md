@@ -1,7 +1,7 @@
 ---
 title: "通过 CI/CD 实现配置文件的多语言翻译"
 description: "使用 GitHub Actions 和 ChatGPT API 自动化处理多语言配置文件的翻译流程"
-pubDate: '2024-02-19'
+pubDate: '2025-02-19'
 ---
 
 ## 背景介绍

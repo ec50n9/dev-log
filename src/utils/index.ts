@@ -22,20 +22,22 @@ export function getCategoryColor(category: string): string {
 	switch (category) {
 		case "ai":
 			return "bg-yellow-300";
-		case "design":
+		case "设计":
 			return "bg-lime-300";
-		case "product":
+		case "产品":
 			return "bg-green-300";
-		case "engineering":
+		case "工程":
 			return "bg-purple-300";
-		case "productivity":
+		case "效率":
 			return "bg-pink-300";
-		case "learning":
+		case "学习":
 			return "bg-blue-300";
-		case "opensource":
+		case "开源":
 			return "bg-orange-400";
-		case "thoughts":
+		case "想法":
 		  return "bg-red-400";
+		case "杂谈":
+			return "bg-indigo-400";
 		default:
 			return "bg-gray-300";
 	}
