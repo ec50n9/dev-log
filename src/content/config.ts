@@ -25,7 +25,6 @@ const writing = defineCollection({
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
 		readingTime: z.number().optional(),
-		isPrivate: z.boolean().optional(),
 	}),
 });
 
@@ -36,6 +35,7 @@ const thought = defineCollection({
 		title: z.string(),
 		description: z.string(),
 		category: z.string(),
+		showTldr: z.boolean().optional(),
 		// Transform string to Date object
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
