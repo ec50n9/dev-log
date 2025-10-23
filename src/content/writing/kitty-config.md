@@ -9,7 +9,7 @@ pubDate: "2025-10-07"
 
 配置内容：
 
-```conf
+```plaintext
 # vim:fileencoding=utf-8:foldmethod=marker
 
 # BEGIN_KITTY_THEME

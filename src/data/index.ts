@@ -9,9 +9,9 @@ export interface MenuItem {
 const menuLabels = [
   ["/", ["此间", "栖心", "归处", "一", "一方"]],
   ["/writings", ["松叶", "青简", "耕笔", "迹", "墨痕"]],
-  ["/thoughts", ["想法", "灵羽", "星屑", "光", "思绪"]],
-  ["/ships", ["项目", "心匠", "栽种", "造物", "心舟"]],
-  ["/abouts", ["关于", "我执", "见我", "己", "自我"]],
+  ["/thoughts", ["思绪", "灵羽", "星屑", "光", "思绪"]],
+  ["/ships", ["造物", "心匠", "栽种", "造物", "心舟"]],
+  ["/about-e9", ["我执", "我执", "见我", "己", "自我"]],
 ] as const
 
 const pickMenuLabels = (index: number): MenuItem[] =>
@@ -21,7 +21,7 @@ const pickMenuLabels = (index: number): MenuItem[] =>
   }))
 
 // const menuLabelIndex = getRandom(0, menuLabels[0][1].length - 1, 1)
-const menuLabelIndex = 1
+const menuLabelIndex = 0
 export const menuItems: MenuItem[] = pickMenuLabels(menuLabelIndex);
 
 export const title = "E9's Space";

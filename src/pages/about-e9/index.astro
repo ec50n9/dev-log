@@ -1,0 +1,29 @@
+---
+import Headers from "@components/misc/headers.astro";
+import { BaseHead } from "@components/seo";
+import { SITE_DESCRIPTION, SITE_TITLE } from "@data/index";
+import RootLayout from "@layouts/root-layout.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<!doctype html>
+<html lang='en'>
+	<head>
+		<BaseHead
+			title={SITE_TITLE}
+			description={SITE_DESCRIPTION}
+			image='/images/ogimage.png'
+		/>
+	</head>
+	<RootLayout>
+		<div
+			id='navbar+title'
+			class='flex flex-col w-full gap-6 max-w-xl'>
+			<Headers />
+			<h1 class='w-full text-7xl font-medium tracking-tight mb-6'>about me</h1>
+			<div class="flex items-center gap-1">
+        <Icon class="inline-block text-xl" name="tabler:tools"/>待完成...
+			</div>
+		</div>
+	</RootLayout>
+</html>
