@@ -1,32 +1,31 @@
-export const SITE_TITLE = "Sanju's Space";
-export const SITE_DESCRIPTION = "A internet space for Sanju.";
+export const SITE_TITLE = "E9's Space";
+export const SITE_DESCRIPTION = "A internet space for @ec50n9.";
 
 export interface MenuItem {
   label: string;
   url: string;
 }
 
-export const menuItems: MenuItem[] = [
-  {
-    label: "首页",
-    url: "/",
-  },
-  {
-    label: "Sanju文章",
-    url: "/writings",
-  },
-  {
-    label: "想法",
-    url: "/thoughts",
-  },
-  {
-    label: "项目",
-    url: "/ships",
-  },
-];
+const menuLabels = [
+  ["/", ["此间", "栖心", "归处", "一", "一方"]],
+  ["/writings", ["松叶", "青简", "耕笔", "迹", "墨痕"]],
+  ["/thoughts", ["想法", "灵羽", "星屑", "光", "思绪"]],
+  ["/ships", ["项目", "心匠", "栽种", "造物", "心舟"]],
+  ["/abouts", ["关于", "我执", "见我", "己", "自我"]],
+] as const
 
-export const title = "Sanju's Space";
-export const description = "A internet space for Sanju.";
+const pickMenuLabels = (index: number): MenuItem[] =>
+  menuLabels.map(([url, labels]) => ({
+    label: labels[index],
+    url
+  }))
+
+// const menuLabelIndex = getRandom(0, menuLabels[0][1].length - 1, 1)
+const menuLabelIndex = 1
+export const menuItems: MenuItem[] = pickMenuLabels(menuLabelIndex);
+
+export const title = "E9's Space";
+export const description = "A internet space for @ec50n9.";
 export const image = "/images/ogimage.png";
 export const url = "https://sanju.sh";
 
@@ -41,26 +40,6 @@ export const products: { name: string, url: string, image: string }[] = [
   //   name: "Fli.so",
   //   url: "https://fli.so",
   //   image: "/products/fli.png",
-  // },
-  // {
-  //   name: "Uiino",
-  //   url: "https://uiino.com",
-  //   image: "/products/uiino.png",
-  // },
-  // {
-  //   name: "SticAI",
-  //   url: "https://sticai.com",
-  //   image: "/products/sticai.png",
-  // },
-  // {
-  //   name: "Dun",
-  //   url: "https://dunsuite.com",
-  //   image: "/products/dun.png",
-  // },
-  // {
-  //   name: "DunTasks",
-  //   url: "https://duntasks.com",
-  //   image: "/products/duntasks.png",
   // },
 ];
 

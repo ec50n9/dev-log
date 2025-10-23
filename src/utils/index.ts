@@ -126,3 +126,9 @@ export function getReadingTime(text: string) {
   const minutes = Math.ceil(words / wordsPerMinute);
   return minutes;
 }
+
+export function getRandom(min: number, max: number, step: number) {
+  const range = Math.floor((max - min) / step);
+  return Math.floor(Math.random() * range) * step + min;
+}
+
