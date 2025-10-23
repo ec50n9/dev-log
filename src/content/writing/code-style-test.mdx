@@ -1,0 +1,66 @@
+---
+title: 代码样式测试
+description: 测试一下代码样式
+pubDate: '2025-10-23 16:34:00'
+---
+
+这是第一段代码
+
+```tsx
+import { Suspense } from 'react'
+import Message from './message'
+import Skeleton from 'components/ui/skeleton'
+import { getMessage } from './api'
+
+export default function Page() {
+  const promise = getMessage()
+  return (
+    <Suspense fallback={<Skeleton />}>
+      <Message promise={promise} />
+    </Suspense>
+  )
+}
+```
+
+这是js代码高亮
+
+```js
+// [!code word:middle]
+function example() {
+  const highlighted = true;
+  const normal = false; // [!code highlight]
+  const start = 1;      // [!code highlight]
+  const middle = 2;
+  const end = 3;
+}
+```
+
+```js
+function example() {
+  const old = 'remove this'; // [!code --]
+  const new = 'add this'; // [!code ++]
+}
+```
+
+```ts
+export function foo() {
+  console.log('hewwo') // [!code --]
+  console.log('hello') // [!code ++]
+}
+```
+
+```ts
+console.log('No errors or warnings')
+console.error('Error') // [!code error]
+console.warn('Warning') // [!code warning]
+```
+
+```js
+function func() {
+  console.log(1);
+
+  for (const i of []) {
+    console.log(2);
+  }
+}
+```

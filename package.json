@@ -28,7 +28,8 @@
   "devDependencies": {
     "@biomejs/biome": "1.7.2",
     "@iconify-json/tabler": "^1.2.23",
-    "@tailwindcss/typography": "^0.5.19"
+    "@tailwindcss/typography": "^0.5.19",
+    "shikiji-transformers": "^0.10.2"
   },
   "trustedDependencies": [
     "@biomejs/biome",
