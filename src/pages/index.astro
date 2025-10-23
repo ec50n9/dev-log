@@ -16,80 +16,77 @@ import RootLayout from '@layouts/root-layout.astro';
 		/>
 	</head>
 
-	<RootLayout>
-		<div
-			id='navbar+title'
-			class='flex flex-col w-full gap-6 max-w-xl lowercase'>
-			<Header />
-			<h1
-				class='w-full text-start text-[min(12vw,72px)] font-medium leading-[0.9] tracking-[-2px] sm:tracking-[-4px]'>
-				meet sanju
-				<span class='text-gray-500 dark:text-gray-400'>designer founder</span>
-			</h1>
+  <RootLayout>
+    <div
+      id='navbar+title'
+      class='flex flex-col w-full gap-6 max-w-xl lowercase'>
+      <Header />
+      <h1
+        class='w-full text-start text-[min(12vw,72px)] font-medium leading-[1] tracking-[-2px] sm:tracking-[-4px]'>
+        meet @ec50n9</br>
+        <span class='text-gray-500 dark:text-gray-400'>独立全栈开发者</span>
+      </h1>
 
-			<div
-				id='about'
-				class='flex flex-col gap-4'>
-				<div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
-					I run <a
-						href='https://thisux.com'
-						target='_blank'
-						class='underline underline-offset-2'
-						>ThisUX</a
-					>, a design-led product studio. We make things that work. For years, I
-					wore many hats. Now I’m doing my own thing.
-				</div>
+      <div
+        id='about'
+        class='flex flex-col gap-4'>
+        <div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
+          我专注于构建高效、可扩展的全栈解决方案。技术栈涵盖 Java、Node.js、Python、Vue3、React、Tailwind CSS 等。</br>
+          如果技术栈是披萨的话，那我的就是意大利风味的全能大拼盘，选择丰富，满足所有需求。
+        </div>
 
-				<div class='font-medium text-lg text-gray-700 dark:text-gray-300'>
-					I work on ideas like
-					<div class='flex flex-wrap gap-2 mt-5'>
-						{
-							products.map((product) => (
-								<a
-									href={product.url}
-									target='_blank'
-									class='p-2 rounded-full gap-2 flex-wrap hover:rotate-1 hover:scale-105 transition-all duration-300 flex items-center justify-center bg-gray-100 hover:bg-gray-200 dark:bg-[#1F1F1F] dark:hover:bg-[#2F2F2F]'>
-									<img
-										src={product.image}
-										alt={product.name}
-										class='size-9'
-									/>
-									<span class='mr-2'>{product.name}</span>
-								</a>
-							))
-						}
-					</div>
-				</div>
+        {products.length ?
+          <div class='font-medium text-lg text-gray-700 dark:text-gray-300'>
+            我参与的项目包括：
+            <div class='flex flex-wrap gap-2 mt-5'>
+              {
+                products.map((product) => (
+                  <a
+                    href={product.url}
+                    target='_blank'
+                    class='p-2 rounded-full gap-2 flex-wrap hover:rotate-1 hover:scale-105 transition-all duration-300 flex items-center justify-center bg-gray-100 hover:bg-gray-200 dark:bg-[#1F1F1F] dark:hover:bg-[#2F2F2F]'>
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      class='size-9'
+                    />
+                    <span class='mr-2'>{product.name}</span>
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        : ''}
 
-				<div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
-					I team up with founders and business owners. We build MVPs, full
-					products, or fix broken experiences. Design to code, we do it all.
-				</div>
+        <div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
+          我与创始人和企业主紧密合作，打造 MVP、全功能产品，或者优化现有系统。速度与质量并行，就像穿越赛道的赛车，既稳又快。
+          我与创始人和企业主紧密合作，构建 MVP、完整产品或改进已有体验。我注重快速开发、产品创新，确保交付高质量、可靠的解决方案。
+        </div>
 
-				<div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
-					Want to chat?
-					<a
-						href='https://cal.com/imsanju/15min'
-						target='_blank'
-						class='underline underline-offset-2'>
-						schedule a call
-					</a>
-				</div>
-			</div>
+        <div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
+          想聊聊吗？
+          <a
+            href=''
+            target='_blank'
+            class='underline underline-offset-2'>
+            加个微信
+          </a>
+        </div>
+      </div>
 
-			<div
-				id='social-links'
-				class='flex flex-row gap-4'>
-				{
-					socialLinks.map((link) => (
-						<a
-							href={link.url}
-							class='text-lg font-medium text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:underline underline-offset-2'>
-							{link.label}
-						</a>
-					))
-				}
-			</div>
-		</div>
-	</RootLayout>
+      <div
+        id='social-links'
+        class='flex flex-row gap-4'>
+        {
+          socialLinks.map((link) => (
+            <a
+              href={link.url}
+              class='text-lg font-medium text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:underline underline-offset-2'>
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </RootLayout>
 </html>
