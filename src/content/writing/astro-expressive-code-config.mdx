@@ -1,0 +1,108 @@
+---
+title: AstroExpressiveCode 配置
+description: AstroExpressiveCode 配置
+pubDate: '2025-10-24'
+---
+
+安装库：
+
+```bash
+bun i astro-expressive-code
+
+// 拓展插件（可选）
+bun i @expressive-code/plugin-collapsible-sections @expressive-code/plugin-line-numbers
+```
+
+修改配置：
+
+```js
+// astro.config.mjs
+import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+import tailwind from "@astrojs/tailwind";
+import expressiveCode from "astro-expressive-code";
+
+export default defineConfig({
+  // ...
+  integrations: [
+    // 必须要放到 mdx 前面
+    expressiveCode({
+      themes: ['material-theme-lighter', 'material-theme-darker'],
+      themeCssSelector: (theme) => {
+        return theme.type === 'dark'
+          ? `.dark`
+          : false;
+      },
+      useDarkModeMediaQuery: false,
+      styleOverrides: {
+        // codeFontSize: '.7rem',
+        // codePaddingBlock: '0.5rem',
+        // codePaddingInline: '1rem',
+        frames: {
+          frameBoxShadowCssValue: ''
+        }
+      },
+    }),
+    mdx(),
+    sitemap({
+      changefreq: "daily",
+      priority: 1,
+      lastmod: new Date().toISOString().split("T")[0],
+    }),
+    tailwind(),
+  ],
+  // ...
+});
+```
+
+如果想让代码块之间有间距：
+
+```css
+/* global.css */
+.expressive-code {
+  @apply my-6;
+}
+```
+
+如果要使用插件，记得添加配置：
+
+```js
+// ec.config.mjs
+import { defineEcConfig } from 'astro-expressive-code'
+import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
+import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections'
+
+export default defineEcConfig({
+  plugins: [
+    pluginLineNumbers(),
+    pluginCollapsibleSections(),
+  ],
+})
+```
+
+接下来就可以直接使用了：
+
+````md
+```js title="line-markers.js" del={2} ins={3-4} {6}
+function demo() {
+  console.log('该行被标记为已删除')
+  // 这线和下一行被标记为插入
+  console.log('这是第二个插入线')
+
+  return '该行使用中性默认标记类型'
+}
+```
+````
+
+效果：
+
+```js title="line-markers.js" del={2} ins={3-4} {6}
+function demo() {
+  console.log('该行被标记为已删除')
+  // 这线和下一行被标记为插入
+  console.log('这是第二个插入线')
+
+  return '该行使用中性默认标记类型'
+}
+```

@@ -58,6 +58,7 @@
   }
 }
 
+
 /* shiki 代码主题 */
 html.dark .astro-code {
   background-color: var(--shiki-dark-bg) !important;
@@ -70,67 +71,3 @@ html.dark .astro-code span {
   font-weight: var(--shiki-dark-font-weight) !important;
   text-decoration: var(--shiki-dark-text-decoration) !important;
 }
-
-/* 代码行 */
-.astro-code .line {
-  @apply relative inline-block w-full px-4;
-}
-
-/* 高亮行 */
-.astro-code .highlighted {
-  @apply pr-5 border-sky-400 bg-sky-300/15;
-}
-.astro-code .highlighted::before {
-  content: '';
-  @apply absolute left-0 inset-y-0 w-0.5 bg-blue-400;
-}
-
-/* 错误高亮 */
-.astro-code .highlighted.error {
-  @apply bg-red-400/15;
-}
-.astro-code .highlighted.error::before {
-  @apply bg-red-400;
-}
-
-/* 警告高亮 */
-.astro-code .highlighted.warning {
-  @apply  bg-amber-400/15;
-}
-.astro-code .highlighted.warning::before {
-  @apply bg-amber-400;
-}
-
-/* code diff */
-.astro-code .diff.add,
-.astro-code .diff.remove {
-  @apply relative;
-}
-.astro-code .diff.add::before,
-.astro-code .diff.remove::before {
-  @apply absolute left-1;
-}
-
-/* 添加的行 */
-.astro-code .diff.add {
-  @apply bg-emerald-500/15;
-}
-.astro-code .diff.add::before {
-  content: '+';
-  @apply text-emerald-500;
-}
-
-/* 删除的行 */
-.astro-code .diff.remove {
-  @apply bg-red-500/15;
-}
-.astro-code .diff.remove::before {
-  content: '-';
-  @apply text-red-500;
-}
-
-/* 词高亮 */
-.astro-code .highlighted-word {
-  @apply box-border px-1 border border-solid border-gray-100/25 rounded-md;
-}
-

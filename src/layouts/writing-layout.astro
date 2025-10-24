@@ -30,7 +30,7 @@ const { title, description, pubDate, heroImage, readingTime } = Astro.props;
 				id='blog-content'
 				class='w-full flex flex-col gap-6 items-center justify-center'>
 				<h1
-					class='w-full text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight'>
+					class='w-full text-4xl md:text-5xl font-medium tracking-tight'>
 					{title}
 				</h1>
 				<div class='flex flex-row gap-2 w-full'>
@@ -42,13 +42,13 @@ const { title, description, pubDate, heroImage, readingTime } = Astro.props;
 						{readingTime} min read
 					</p>
 				</div>
-				<p
-					class='w-full text-start font-medium text-gray-700 dark:text-gray-300 text-lg'>
-					<span class='font-semibold text-gray-900 dark:text-white'
-						>tl;dr:
-					</span>
-					{description}
-				</p>
+        <p
+          class='w-full text-start font-medium text-gray-700 dark:text-gray-300 text-lg'>
+          <span class='font-semibold text-gray-900 dark:text-white'
+            >tl;dr:
+          </span>
+          {description}
+        </p>
 				<!-- we're using the Image component from Astro to handle the image optimization -->
 				{
 					heroImage && (
@@ -61,13 +61,13 @@ const { title, description, pubDate, heroImage, readingTime } = Astro.props;
 				}
 				<div
 					class={clsx(
-						'w-full prose-sm md:prose-lg my-3 prose-p:font-medium dark:prose-invert prose-a:underline prose-a:bg-orange-50 prose-a:decoration-orange-500 items-center justify-center',
+						'w-full prose md:prose-lg my-3 prose-p:font-medium dark:prose-invert prose-a:underline prose-a:bg-orange-50 prose-a:decoration-orange-500 items-center justify-center',
 						'dark:prose-a:bg-orange-950 dark:prose-a:decoration-orange-400 dark:prose-a:underline',
 						'prose-h1:font-medium prose-h2:font-medium prose-h3:font-medium prose-h4:font-medium prose-h5:font-medium prose-h6:font-medium',
 						'prose-h1:tracking-tight prose-h2:tracking-tight prose-h3:tracking-tight prose-h4:tracking-tight prose-h5:tracking-tight prose-h6:tracking-tight',
 						'prose-ul:font-medium prose-ol:font-medium prose-li:font-medium',
             'prose-ul:space-y-3 prose-ol:space-y-3 prose-li:space-y-3',
-            'prose-pre:px-0'
+            'prose-pre:leading-5 prose-code:text-xs md:prose-code:text-sm'
 					)}>
 					<slot />
 				</div>

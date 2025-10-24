@@ -22,45 +22,205 @@ export default function Page() {
 }
 ```
 
-这是js代码高亮
+```js title="my-test-file.js"
+console.log('标题属性示例')
+```
 
-```js
-// [!code word:middle]
-function example() {
-  const highlighted = true;
-  const normal = false; // [!code highlight]
-  const start = 1;      // [!code highlight]
-  const middle = 2;
-  const end = 3;
+```html
+<!-- src/content/index.html -->
+<div>注释文件名示例</div>
+```
+
+```bash
+echo "这个终端框架没有标题"
+```
+
+```powershell title="PowerShell terminal example"
+Write-Output "这个有一个标题！"
+```
+
+```sh frame="none"
+echo "看,没有框架！"
+```
+
+```ps frame="code" title="PowerShell Profile.ps1"
+# 如果不覆盖,这将是一个终端框架
+function Watch-Tail { Get-Content -Tail 20 -Wait $args }
+New-Alias tail Watch-Tail
+```
+
+```js {1, 4, 7-8}
+// Line 1 - targeted by line number
+// Line 2
+// Line 3
+// Line 4 - targeted by line number
+// Line 5
+// Line 6
+// Line 7 - targeted by range "7-8"
+// Line 8 - targeted by range "7-8"
+```
+
+```js title="line-markers.js" del={2} ins={3-4} {6}
+function demo() {
+  console.log('该行被标记为已删除')
+  // 这线和下一行被标记为插入
+  console.log('这是第二个插入线')
+
+  return '该行使用中性默认标记类型'
 }
 ```
 
-```js
-function example() {
-  const old = 'remove this'; // [!code --]
-  const new = 'add this'; // [!code ++]
-}
+```jsx {"1":5} del={"2":7-8} ins={"3":10-12}
+// labeled-line-markers.jsx
+<button
+  role="button"
+  {...props}
+  value={value}
+  className={buttonClassName}
+  disabled={disabled}
+  active={active}
+>
+  {children &&
+    !active &&
+    (typeof children === 'string' ? <span>{children}</span> : children)}
+</button>
 ```
 
-```ts
-export function foo() {
-  console.log('hewwo') // [!code --]
-  console.log('hello') // [!code ++]
-}
+```jsx {"1.这里提供价值道具:":5-6} del={"2.删除残疾和活动状态:":8-10} ins={"3.将其添加到将孩子们放入按钮中:":12-15}
+// labeled-line-markers.jsx
+<button
+  role="button"
+  {...props}
+
+  value={value}
+  className={buttonClassName}
+
+  disabled={disabled}
+  active={active}
+>
+
+  {children &&
+    !active &&
+    (typeof children === 'string' ? <span>{children}</span> : children)}
+</button>
 ```
 
-```ts
-console.log('No errors or warnings')
-console.error('Error') // [!code error]
-console.warn('Warning') // [!code warning]
+```diff
++ 该线将被标记为插入
+- 这条线将被标记为已删除
+  这是一条常规线
 ```
 
-```js
-function func() {
-  console.log(1);
+```diff
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,4 @@
++ 这是一个实际的差异文件
+- 所有内容将保持不变
+  也不会删除空格
+```
 
-  for (const i of []) {
-    console.log(2);
+```diff lang="js"
+  function thisIsJavaScript() {
+    //整个块被突出显示为JavaScript，
+    //我们仍然可以在其中添加差异标记！
+-   console.log('要删除的旧代码')
++   console.log('新的闪亮代码!')
   }
+```
+
+```js "given text"
+function demo() {
+  // Mark any given text inside lines
+  return 'Multiple matches of the given text are supported';
 }
+```
+
+```ts /ye[sp]/
+console.log('The words yes and yep will be marked.')
+```
+
+```sh /\/ho.*\//
+echo "Test" > /home/test.txt
+```
+
+```plaintext /ye(s|p)/
+The word "yes" will have the letter "s" marked.
+This also works for the "p" in "yep".
+```
+
+```plaintext /ye(?:s|p)/
+This block uses `/ye(?:s|p)/`, which causes the full
+matching words "yes" and "yep" to be marked.
+```
+
+```js "return true;" ins="inserted" del="deleted"
+function demo() {
+  console.log('These are inserted and deleted marker types');
+  // The return statement uses the default marker type
+  return true;
+}
+```
+
+```js wrap
+// Example with wrap
+function getLongString() {
+  return '这是一个很长的字符串，除非容器非常宽，否则很可能不适合可用空间。这是一个很长的字符串，除非容器非常宽，否则很可能不适合可用空间。'
+}
+```
+
+```js wrap=false
+// Example with wrap=false
+function getLongString() {
+  return '这是一个很长的字符串，除非容器非常宽，否则很可能不适合可用空间。这是一个很长的字符串，除非容器非常宽，否则很可能不适合可用空间。'
+}
+```
+
+```js wrap preserveIndent
+// 带有 preserverIndent 的示例（默认启用）
+function getLongString() {
+  return '这是一个很长的字符串，除非容器非常宽，否则很可能不适合可用空间。这是一个很长的字符串，除非容器非常宽，否则很可能不适合可用空间。'
+}
+```
+
+```js wrap preserveIndent=false
+// preserveIndent = false 的示例
+function getLongString() {
+  return '这是一个很长的字符串，除非容器非常宽，否则很可能不适合可用空间。这是一个很长的字符串，除非容器非常宽，否则很可能不适合可用空间。'
+}
+```
+
+```js collapse={1-5, 12-14}
+// All this boilerplate setup code will be collapsed
+import { someBoilerplateEngine } from '@example/some-boilerplate'
+import { evenMoreBoilerplate } from '@example/even-more-boilerplate'
+
+const engine = someBoilerplateEngine(evenMoreBoilerplate())
+
+// This part of the code will be visible by default
+engine.doSomething(1, 2, 3, calcFn)
+
+function calcFn() {
+  // You can have multiple collapsed sections
+  const a = 1
+  const b = 2
+  return a + b
+}
+```
+
+```js showLineNumbers
+// This code block will show line numbers
+console.log('Greetings from line 2!')
+console.log('I am on line 3')
+```
+
+```js showLineNumbers=false
+// Line numbers are disabled for this block
+console.log('Hello?')
+console.log('Sorry, do you know what line I am on?')
+```
+
+```js showLineNumbers startLineNumber=5
+console.log('Greetings from line 5!')
+console.log('I am on line 6')
 ```

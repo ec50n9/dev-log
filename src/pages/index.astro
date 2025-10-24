@@ -30,9 +30,16 @@ import RootLayout from '@layouts/root-layout.astro';
       <div
         id='about'
         class='flex flex-col gap-4'>
-        <div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
-          我专注于构建高效、可扩展的全栈解决方案。技术栈涵盖 Java、Node.js、Python、Vue3、React、Tailwind CSS 等。</br>
-          如果技术栈是披萨的话，那我的就是意大利风味的全能大拼盘，选择丰富，满足所有需求。
+        <div class="font-medium md:text-lg text-gray-700 dark:text-gray-400">
+          <span class="block mb-2 text-xl font-semibold">🛠️ 技术栈</span>
+          <ul class="list-disc space-y-1 ml-2">
+            <li>前端: Vue3/React, TypeScript, Webpack/Vite</li>
+            <li>样式: TailwindCSS, UnoCSS, Sass, CSS Modules</li>
+            <li>后端: Node.js, Express, Tinyhttp, Nest.js, Prisma ORM</li>
+            <li>数据库: PostgreSQL, MySQL, MongoDB, Redis</li>
+            <li>跨端: React Native, Kotlin Multiplatform, Tauri, Electron, Next.js SSR</li>
+            <li>DevOps: AWS, Docker, GitHub Actions CI/CD</li>
+          </ul>
         </div>
 
         {products.length ?
@@ -59,11 +66,11 @@ import RootLayout from '@layouts/root-layout.astro';
         : ''}
 
         <div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
-          我与创始人和企业主紧密合作，构建 MVP、完整产品或改进已有体验。我注重快速开发、产品创新，确保交付高质量、可靠的解决方案。
+          有机会一起沟通一下吗，比如构建 MVP、完整产品或改进已有体验。<br/>
+          我注重快速开发、产品创新，确保交付高质量、可靠的解决方案。
         </div>
 
         <div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
-          想聊聊吗？
           <a
             href=''
             target='_blank'

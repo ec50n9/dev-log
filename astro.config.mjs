@@ -4,8 +4,15 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import cloudflare from "@astrojs/cloudflare";
 import icon from "astro-icon";
-import { transformerNotationDiff, transformerNotationErrorLevel, transformerNotationFocus, transformerNotationHighlight, transformerNotationWordHighlight } from 'shikiji-transformers';
-
+import {
+  transformerMetaHighlight,
+  transformerMetaWordHighlight,
+  transformerNotationDiff,
+  transformerNotationErrorLevel,
+  transformerNotationFocus,
+  transformerNotationHighlight,
+  transformerNotationWordHighlight
+} from 'shikiji-transformers';
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,19 +20,20 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: 'shiki',
     shikiConfig: {
-      // theme: 'github-dark',
       themes: {
-        light: 'github-light',
-        dark: 'github-dark'
+        light: 'catppuccin-latte',
+        dark: 'catppuccin-mocha'
       },
       transformers: [
         transformerNotationHighlight(),
         transformerNotationWordHighlight(),
         transformerNotationDiff(),
         transformerNotationErrorLevel(),
-        transformerNotationFocus()
-      ]
-    }
+        transformerNotationFocus(),
+        transformerMetaHighlight(),
+        transformerMetaWordHighlight(),
+      ],
+    },
   },
   integrations: [
     mdx(),
@@ -35,7 +43,7 @@ export default defineConfig({
       lastmod: new Date().toISOString().split("T")[0],
     }),
     tailwind(),
-    icon()
+    icon(),
   ],
   output: "server",
   adapter: cloudflare(),
