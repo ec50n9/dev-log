@@ -10,9 +10,11 @@ const pubDate = dayjs(Astro.props.pubDate);
 const now = dayjs();
 const yearsOld = now.diff(pubDate, 'year');
 const isOutdated = yearsOld >= 1;
+
+const tz = dayjs.tz.guess()
 ---
 
-<p>现在是{now.format("YYYY-MM-DD HH:mm:ss")}</p>
+<p>时区：{tz}，现在是{now.format("YYYY-MM-DD HH:mm:ss")}</p>
 {isOutdated && (
   <div class='w-full p-3 bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-lg'>
     <p class='font-medium text-sm md:text-base text-amber-800 dark:text-amber-200 flex items-center gap-3'>
