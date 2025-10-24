@@ -1,0 +1,34 @@
+---
+import dayjs from 'dayjs';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+	pubDate: string;
+}
+
+const pubDate = dayjs(Astro.props.pubDate);
+const now = dayjs();
+const yearsOld = now.diff(pubDate, 'year');
+const isOutdated = yearsOld >= 1;
+---
+
+<p>现在是{now.format("YYYY-MM-DD HH:mm:ss")}</p>
+{isOutdated && (
+  <div class='w-full p-3 bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-lg'>
+    <p class='font-medium text-sm md:text-base text-amber-800 dark:text-amber-200 flex items-center gap-3'>
+      <Icon name="tabler:alert-triangle" class="w-5 h-5 flex-shrink-0" />
+      <!-- <span> -->
+      <!-- 	<span class='font-semibold'>时效性提醒：</span> -->
+      <!-- 	本文发布于 {yearsOld} 年前，文中的部分信息可能已经过时或不再适用，请结合最新资料阅读。 -->
+      <!-- </span> -->
+    <span>
+      <span class="font-semibold">时效性提醒：</span>
+      本文写于 {yearsOld} 年前，基于当时的认知与背景。技术世界日新月异，在采纳文中观点时，敬请留意其时效性。
+    </span>
+    <!-- <span class="font-semibold"> -->
+    <!--   <span>这是一次知识考古：</span> -->
+    <!--   本文是 {yearsOld} 年前的一份记录。它或许已无法完全映射当下，但其思考的轨迹依然值得翻阅。 -->
+    <!-- </span> -->
+    </p>
+  </div>
+)}

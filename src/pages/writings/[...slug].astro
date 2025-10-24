@@ -3,7 +3,6 @@ import WritingLayout from '@layouts/writing-layout.astro';
 import { ScrollProgress } from '@components/misc';
 import { type CollectionEntry, getCollection } from 'astro:content';
 import { getReadingTime } from '@utils/index';
-import dayjs from 'dayjs';
 
 const posts = await getCollection('writing');
 type Props = CollectionEntry<'writing'>;
@@ -16,15 +15,9 @@ if (!post) return Astro.redirect('/404');
 const { Content } = await post.render();
 
 const readingTime = getReadingTime(post.body);
-
-// 检查文章是否过时（超过1年）
-const pubDate = dayjs(post.data.pubDate);
-const now = dayjs();
-const yearsOld = now.diff(pubDate, 'year');
-const isOutdated = yearsOld >= 1;
 ---
 
-<WritingLayout {...post.data} readingTime={readingTime} isOutdated={isOutdated} yearsOld={yearsOld}>
+<WritingLayout {...post.data} readingTime={readingTime} >
 	<Content />
 	<ScrollProgress />
 </WritingLayout>
