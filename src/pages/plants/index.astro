@@ -1,0 +1,27 @@
+---
+import Headers from "@components/misc/headers.astro";
+import { BaseHead } from "@components/seo";
+import { SITE_DESCRIPTION, SITE_TITLE } from "@data/index";
+import RootLayout from "@layouts/root-layout.astro";
+---
+
+<!doctype html>
+<html lang='en'>
+	<head>
+		<BaseHead
+			title={SITE_TITLE}
+			description={SITE_DESCRIPTION}
+			image='/images/ogimage.png'
+		/>
+	</head>
+	<RootLayout>
+		<div
+			id='navbar+title'
+			class='flex flex-col w-full gap-8 max-w-3xl lowercase'>
+			<Headers />
+			<h1 class='w-full text-5xl md:text-7xl font-medium tracking-tight'>Plants</h1>
+
+      <p>🛠 开发中...</p>
+		</div>
+	</RootLayout>
+</html>

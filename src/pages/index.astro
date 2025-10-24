@@ -2,8 +2,9 @@
 import { Header } from '@components/misc';
 import { BaseHead } from '@components/seo';
 import { products, SITE_TITLE } from '@data/index';
-import { SITE_DESCRIPTION, socialLinks } from '@data/index';
+import { SITE_DESCRIPTION, socialLinks, techStacks } from '@data/index';
 import RootLayout from '@layouts/root-layout.astro';
+import { clsx } from '@utils/index';
 ---
 
 <!doctype html>
@@ -19,28 +20,60 @@ import RootLayout from '@layouts/root-layout.astro';
   <RootLayout>
     <div
       id='navbar+title'
-      class='flex flex-col w-full gap-6 max-w-xl lowercase'>
+      class='flex flex-col w-full gap-6 max-w-xl'>
       <Header />
       <h1
         class='w-full text-start text-[min(12vw,72px)] font-medium leading-[1] tracking-[-2px] sm:tracking-[-4px]'>
-        相逢 @ec50n9</br>
-        <span class='text-gray-500 dark:text-gray-400'>独立全栈开发者</span>
+        Ec50n9</br>
+        <span class='text-gray-500 dark:text-gray-400'>自由开发者</span>
       </h1>
 
-      <div
-        id='about'
-        class='flex flex-col gap-4'>
-        <div class="font-medium md:text-lg text-gray-700 dark:text-gray-400">
-          <span class="block mb-2 text-xl font-semibold">🛠️ 技术栈</span>
-          <ul class="list-disc space-y-1 ml-2">
-            <li>前端: Vue3/React, TypeScript, Webpack/Vite</li>
-            <li>样式: TailwindCSS, UnoCSS, Sass, CSS Modules</li>
-            <li>后端: Node.js, Express, Tinyhttp, Nest.js, Prisma ORM</li>
-            <li>数据库: PostgreSQL, MySQL, MongoDB, Redis</li>
-            <li>跨端: React Native, Kotlin Multiplatform, Tauri, Electron, Next.js SSR</li>
-            <li>DevOps: AWS, Docker, GitHub Actions CI/CD</li>
-          </ul>
-        </div>
+			<!-- 个人介绍 -->
+			<section class='flex flex-col gap-4 leading-relaxed tracking-wide'>
+        <p class="text-lg font-medium">幸会 👋</p>
+				<p class='text-lg font-medium'>
+          我是 ec50n9，一位热爱技术的全栈工程师。
+				</p>
+        <p class="text-gray-500 dark:text-gray-400">
+					我喜欢折腾有趣的东西，享受将想法转化为现实的过程。
+        </p>
+				<p class='text-gray-500 dark:text-gray-400'>
+					从前端到后端，从小程序到桌面应用，我相信技术的价值在于解决实际问题。
+					在过去两年的工作中，我主导了多个核心系统的开发，并在业余时间保持着对新技术的探索。
+				</p>
+			</section>
+
+
+			<!-- 当前状态 -->
+			<section class='flex flex-col gap-3'>
+				<h2 class='text-3xl font-semibold text-gray-600 dark:text-gray-300'>
+				  状态	
+				</h2>
+				<div class='flex flex-col gap-4 text-gray-500 dark:text-gray-400'>
+					<p>独立全栈开发者，专注于产品开发与用户体验优化</p>
+					<p>擅长快速 MVP 构建，注重代码质量与工程化实践</p>
+					<p>积极拥抱 AI 工具，使用 ClaudeCode、CodeX、Cursor 提升开发效率</p>
+				</div>
+			</section>
+
+
+			<!-- 技术栈 -->
+			<section id='about' class='flex flex-col gap-4'>
+				<h2 class='text-3xl font-semibold text-gray-600 dark:text-gray-300'>
+					技术
+				</h2>
+
+				<div class='grid grid-cols-1 md:grid-cols-2 gap-4'>
+          {techStacks.map(techStack=>(
+            <div class={clsx('p-4 rounded-lg', techStack.bgClass)}>
+              <h3 class={clsx('font-semibold mb-2', techStack.titleColor)}>{techStack.title}</h3>
+              <p class={clsx('text-sm font-medium', techStack.textColor)}>
+                {techStack.items.map(item=>item.name).join(' / ')} 
+              </p>
+            </div>
+          ))}
+				</div>
+
 
         {products.length ?
           <div class='font-medium text-lg text-gray-700 dark:text-gray-300'>
@@ -65,12 +98,7 @@ import RootLayout from '@layouts/root-layout.astro';
           </div>
         : ''}
 
-        <div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
-          有机会一起沟通一下吗，比如构建 MVP、完整产品或改进已有体验。<br/>
-          我注重快速开发、产品创新，确保交付高质量、可靠的解决方案。
-        </div>
-
-        <div class='font-medium text-lg text-gray-700 dark:text-gray-400'>
+        <div class='font-medium text-gray-700 dark:text-gray-400'>
           <a
             href=''
             target='_blank'
@@ -78,7 +106,7 @@ import RootLayout from '@layouts/root-layout.astro';
             认识一下
           </a>
         </div>
-      </div>
+			</section>
 
       <div
         id='social-links'
