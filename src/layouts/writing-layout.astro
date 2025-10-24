@@ -1,4 +1,5 @@
 ---
+import dayjs from '@utils/dayjs'
 import type { CollectionEntry } from 'astro:content';
 import { Header } from '@components/misc';
 import FormattedDate from '@components/misc/formatted-date.astro';
@@ -11,7 +12,8 @@ type Props = CollectionEntry<'writing'>['data'] & {
 	readingTime?: number;
 };
 
-const { title, description, pubDate, heroImage, readingTime } = Astro.props;
+const { title, description, pubDate: pubDateOrigin, heroImage, readingTime } = Astro.props;
+const pubDate = dayjs(pubDateOrigin).tz('Asia/Shanghai', true)
 ---
 
 <html lang='en'>
