@@ -1,10 +1,16 @@
 ---
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone'
 import { WritingItem } from '@components/cards';
 import { Header } from '@components/misc';
 import { BaseHead } from '@components/seo';
 import { SITE_DESCRIPTION, SITE_TITLE } from '@data/index';
 import { getCollection } from 'astro:content';
 import RootLayout from '@layouts/root-layout.astro';
+
+dayjs.extend(utc)
+dayjs.extend(timezone)
 
 const writings = (await getCollection('writing')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -31,7 +37,7 @@ const writings = (await getCollection('writing')).sort(
 				writings.map((writing) => (
 					<WritingItem
 						title={writing.data.title}
-						date={writing.data.pubDate}
+						date={dayjs(writing.data.pubDate).tz('Asia/Shanghai')}
 						slug={writing.slug}
 					/>
 				))
