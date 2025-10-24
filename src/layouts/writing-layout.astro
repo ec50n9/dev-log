@@ -5,10 +5,15 @@ import FormattedDate from '@components/misc/formatted-date.astro';
 import { BaseHead } from '@components/seo';
 import RootLayout from '@layouts/root-layout.astro';
 import { clsx } from '@utils/index';
+import { Icon } from 'astro-icon/components';
 
-type Props = CollectionEntry<'writing'>['data'];
+type Props = CollectionEntry<'writing'>['data'] & {
+	readingTime?: number;
+	isOutdated?: boolean;
+	yearsOld?: number;
+};
 
-const { title, description, pubDate, heroImage, readingTime } = Astro.props;
+const { title, description, pubDate, heroImage, readingTime, isOutdated, yearsOld } = Astro.props;
 ---
 
 <html lang='en'>
@@ -39,9 +44,28 @@ const { title, description, pubDate, heroImage, readingTime } = Astro.props;
 					</p>
 					<span class='text-gray-500 font-medium'>·</span>
 					<p class='text-start text-gray-500 font-medium'>
-						{readingTime} min read
+						阅时约 {readingTime} 分
 					</p>
 				</div>
+				{isOutdated && (
+					<div class='w-full p-3 bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-lg'>
+						<p class='font-medium text-sm md:text-base text-amber-800 dark:text-amber-200 flex items-center gap-3'>
+							<Icon name="tabler:alert-triangle" class="w-5 h-5 flex-shrink-0" />
+							<!-- <span> -->
+							<!-- 	<span class='font-semibold'>时效性提醒：</span> -->
+							<!-- 	本文发布于 {yearsOld} 年前，文中的部分信息可能已经过时或不再适用，请结合最新资料阅读。 -->
+							<!-- </span> -->
+            <span>
+              <span class="font-semibold">时效性提醒：</span>
+              本文写于 {yearsOld} 年前，基于当时的认知与背景。技术世界日新月异，在采纳文中观点时，敬请留意其时效性。
+            </span>
+            <!-- <span class="font-semibold"> -->
+            <!--   <span>这是一次知识考古：</span> -->
+            <!--   本文是 {yearsOld} 年前的一份记录。它或许已无法完全映射当下，但其思考的轨迹依然值得翻阅。 -->
+            <!-- </span> -->
+						</p>
+					</div>
+				)}
         <p
           class='w-full text-start font-medium text-gray-700 dark:text-gray-300 text-lg'>
           <span class='font-semibold text-gray-900 dark:text-white'
