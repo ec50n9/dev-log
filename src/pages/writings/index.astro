@@ -1,5 +1,5 @@
 ---
-import dayjs from '@utils/dayjs'
+import dayjs, { toBeiJingTime } from '@utils/dayjs'
 import { WritingItem } from '@components/cards';
 import { Header } from '@components/misc';
 import { BaseHead } from '@components/seo';
@@ -32,7 +32,7 @@ const writings = (await getCollection('writing')).sort(
 				writings.map((writing) => (
 					<WritingItem
 						title={writing.data.title}
-            date={dayjs(writing.data.pubDate).tz('Asia/Shanghai', true)}
+            date={toBeiJingTime(writing.data.pubDate)}
 						slug={writing.slug}
 					/>
 				))

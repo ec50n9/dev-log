@@ -1,5 +1,5 @@
 ---
-import dayjs from '@utils/dayjs'
+import { toBeiJingTime } from '@utils/dayjs'
 import type { CollectionEntry } from 'astro:content';
 import { Header } from '@components/misc';
 import FormattedDate from '@components/misc/formatted-date.astro';
@@ -13,7 +13,7 @@ type Props = CollectionEntry<'writing'>['data'] & {
 };
 
 const { title, description, pubDate: pubDateOrigin, heroImage, readingTime } = Astro.props;
-const pubDate = dayjs(pubDateOrigin).tz('Asia/Shanghai', true)
+const pubDate = toBeiJingTime(pubDateOrigin)
 ---
 
 <html lang='en'>
@@ -39,6 +39,10 @@ const pubDate = dayjs(pubDateOrigin).tz('Asia/Shanghai', true)
 					{title}
 				</h1>
 				<div class='flex flex-row gap-2 w-full'>
+					<p class='text-start text-gray-500 font-medium'>
+						{pubDate.format("YYYY-MM-DD HH:mm")}
+					</p>
+					<span class='text-gray-500 font-medium'>·</span>
 					<p class='text-start text-gray-500 font-medium'>
 						<FormattedDate date={pubDate.toString()} />
 					</p>

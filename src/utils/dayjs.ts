@@ -7,4 +7,9 @@ dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.extend(relativeTime);
 
+
+export const toBeiJingTime = (date: any) => {
+  return dayjs(date).tz('Asia/Shanghai', true)
+}
+
 export default dayjs;
