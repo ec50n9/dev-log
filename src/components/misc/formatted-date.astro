@@ -1,18 +1,14 @@
 ---
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/zh-cn';
 import { getBeijingTime } from '@utils/dayjs';
 
-dayjs.extend(relativeTime);
-dayjs.locale('zh-cn');
 
 interface Props {
 	date: string;
 }
 
 const { date: dateString } = Astro.props;
-const date = dayjs(dateString);
+const date = getBeijingTime(dateString);
 const now = getBeijingTime();
 const diffInDays = now.diff(date, 'day');
 

@@ -1,5 +1,4 @@
 ---
-import dayjs from 'dayjs'
 import { getBeijingTime } from '@utils/dayjs'
 import { Icon } from 'astro-icon/components';
 
@@ -7,7 +6,7 @@ interface Props {
 	pubDate: string;
 }
 
-const pubDate = dayjs(Astro.props.pubDate);
+const pubDate = getBeijingTime(Astro.props.pubDate);
 const now = getBeijingTime();
 const yearsOld = now.diff(pubDate, 'year');
 const isOutdated = yearsOld >= 1;
