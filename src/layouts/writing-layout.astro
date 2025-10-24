@@ -40,10 +40,6 @@ const pubDate = toBeiJingTime(pubDateOrigin)
 				</h1>
 				<div class='flex flex-row gap-2 w-full'>
 					<p class='text-start text-gray-500 font-medium'>
-						{pubDate.format("YYYY-MM-DD HH:mm")}
-					</p>
-					<span class='text-gray-500 font-medium'>·</span>
-					<p class='text-start text-gray-500 font-medium'>
 						<FormattedDate date={pubDate.toString()} />
 					</p>
 					<span class='text-gray-500 font-medium'>·</span>

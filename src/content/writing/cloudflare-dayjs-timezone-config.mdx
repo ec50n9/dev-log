@@ -1,0 +1,37 @@
+---
+title: Cloudflare 部署 Astro 页面的时区问题
+description: Cloudflare 部署 Astro 页面的时区问题
+pubDate: '2025-10-24 18:01:00'
+---
+
+封装工具类：
+
+```ts
+// src/utils/dayjs.ts
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone'
+import relativeTime from 'dayjs/plugin/relativeTime';
+
+dayjs.extend(utc)
+dayjs.extend(timezone)
+dayjs.extend(relativeTime);
+
+
+export const toBeiJingTime = (date: any) => {
+  // 由于我们文件中填写的时间是北京时间，但是服务器读取的时候会以世界时间读取，
+  // 所以需要手动修改时区为上海，并且时间的值不变。
+  return dayjs(date).tz('Asia/Shanghai', true)
+}
+
+export default dayjs;
+```
+
+使用：
+
+```ts
+const { title, description, pubDate: pubDateOrigin, heroImage, readingTime } = Astro.props;
+const pubDate = toBeiJingTime(pubDateOrigin)
+```
+
+以上。
