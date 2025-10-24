@@ -18,11 +18,9 @@ const diffInDays = now.diff(date, 'day');
 // 如果超过 3 天，显示具体日期；否则显示相对时间
 const displayText = diffInDays > 3
 	? date.format('YYYY 年 M 月 D 日')
-	: date.from(now);
+	: date.locale('zh-cn').from(now);
 ---
 
-<p>fuck{date}</p>
-<p>you{now}</p>
 <time datetime={date.toISOString()}>
 	{displayText}
 </time>
