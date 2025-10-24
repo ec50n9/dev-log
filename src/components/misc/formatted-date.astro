@@ -1,18 +1,26 @@
 ---
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import 'dayjs/locale/zh-cn';
+
+dayjs.extend(relativeTime);
+dayjs.locale('zh-cn');
+
 interface Props {
 	date: string;
 }
 
 const { date: dateString } = Astro.props;
-const date = new Date(dateString);
+const date = dayjs(dateString);
+const now = dayjs();
+const diffInDays = now.diff(date, 'day');
+
+// 如果超过 3 天，显示具体日期；否则显示相对时间
+const displayText = diffInDays > 3
+	? date.format('YYYY 年 M 月 D 日')
+	: date.fromNow();
 ---
 
 <time datetime={date.toISOString()}>
-	{
-		date.toLocaleDateString('zh-cn', {
-			year: 'numeric',
-			month: 'short',
-			day: 'numeric',
-		})
-	}
+	{displayText}
 </time>

@@ -11,7 +11,7 @@ const menuLabels = [
   ["/writings", ["杂函", "青简", "耕笔", "迹", "墨痕"]],
   ["/thoughts", ["思绪", "灵羽", "星屑", "光", "思绪"]],
   ["/ships", ["造物", "心匠", "栽种", "造物", "心舟"]],
-  ["/about-e9", ["我执", "我执", "见我", "己", "自我"]],
+  ["/about-e9", ["见我", "我执", "见我", "己", "自我"]],
 ] as const
 
 const pickMenuLabels = (index: number): MenuItem[] =>
