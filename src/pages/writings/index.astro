@@ -37,7 +37,7 @@ const writings = (await getCollection('writing')).sort(
 				writings.map((writing) => (
 					<WritingItem
 						title={writing.data.title}
-						date={dayjs(writing.data.pubDate).tz('Asia/Shanghai')}
+        date={dayjs(writing.data.pubDate).tz('Asia/Shanghai', true)}
 						slug={writing.slug}
 					/>
 				))
