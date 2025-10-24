@@ -19,10 +19,10 @@ const { category, content, pubDate, index, slug } = Astro.props;
 			<span class='underline decoration-wavy'>{category}</span>
 		</h5>
 		<h1
-			class='text-black dark:text-black font-medium w-full sm:text-xl md:text-2xl indent-9'>
+			class='text-gray-700 dark:text-gray-700 font-medium w-full sm:text-xl md:text-2xl indent-9'>
 			{content}
 		</h1>
-		<p class='text-black w-full text-end font-medium text-sm'>
+		<p class='text-gray-700 w-full text-end font-medium text-sm'>
 			<FormattedDate date={pubDate} />
 		</p>
 	</article>
