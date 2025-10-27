@@ -1,0 +1,77 @@
+---
+import { toBeiJingTime } from '@utils/dayjs'
+import type { CollectionEntry } from 'astro:content';
+import { Header } from '@components/misc';
+import FormattedDate from '@components/misc/formatted-date.astro';
+import OutdatedReminder from '@components/misc/outdated-reminder.astro';
+import { BaseHead } from '@components/seo';
+import RootLayout from '@layouts/root-layout.astro';
+import { clsx } from '@utils/index';
+
+type Props = CollectionEntry<'plants'>['data'] & {
+	readingTime?: number;
+};
+
+const { title, description, pubDate: pubDateOrigin, readingTime } = Astro.props;
+const pubDate = toBeiJingTime(pubDateOrigin)
+---
+
+<html lang='en'>
+	<head>
+		<BaseHead
+			title={title}
+			description={description}
+			image='/images/ogimage.png'
+		/>
+	</head>
+
+	<RootLayout>
+		<div
+			id='navbar+title'
+			class='flex flex-col w-full gap-6 max-w-2xl'>
+			<Header />
+
+			<article
+				id='blog-content'
+				class='w-full flex flex-col gap-6 items-center justify-center'>
+				<h1
+					class='w-full text-4xl md:text-5xl font-medium tracking-tight'>
+					{title}
+				</h1>
+
+				<div class='flex flex-row gap-2 w-full'>
+					<p class='text-start text-gray-500 font-medium'>
+						<FormattedDate date={pubDate.toString()} />
+					</p>
+					<span class='text-gray-500 font-medium'>·</span>
+					<p class='text-start text-gray-500 font-medium'>
+						阅时约 {readingTime} 分
+					</p>
+				</div>
+
+        <OutdatedReminder pubDate={pubDate.toString()}/>
+
+        <p
+          class='w-full text-start font-medium text-gray-700 dark:text-gray-300 text-lg'>
+          <span class='font-semibold text-gray-900 dark:text-white'
+            >tl;dr:
+          </span>
+          {description}
+        </p>
+
+				<div
+					class={clsx(
+						'w-full prose md:prose-lg my-3 prose-p:font-medium dark:prose-invert prose-a:underline prose-a:bg-green-50 prose-a:decoration-green-600 items-center justify-center',
+						'dark:prose-a:bg-green-950 dark:prose-a:decoration-green-400 dark:prose-a:underline',
+						'prose-h1:font-medium prose-h2:font-medium prose-h3:font-medium prose-h4:font-medium prose-h5:font-medium prose-h6:font-medium',
+						'prose-h1:tracking-tight prose-h2:tracking-tight prose-h3:tracking-tight prose-h4:tracking-tight prose-h5:tracking-tight prose-h6:tracking-tight',
+						'prose-ul:font-medium prose-ol:font-medium prose-li:font-medium',
+            'prose-ul:space-y-3 prose-ol:space-y-3 prose-li:space-y-3',
+            'prose-pre:leading-5 prose-code:text-xs md:prose-code:text-sm'
+					)}>
+					<slot />
+				</div>
+			</article>
+		</div>
+	</RootLayout>
+</html>

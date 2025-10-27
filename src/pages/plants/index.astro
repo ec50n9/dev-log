@@ -2,7 +2,14 @@
 import Headers from "@components/misc/headers.astro";
 import { BaseHead } from "@components/seo";
 import { SITE_DESCRIPTION, SITE_TITLE } from "@data/index";
+import { getCollection } from 'astro:content';
 import RootLayout from "@layouts/root-layout.astro";
+import PlantsItem from "@components/cards/plants-item.astro"
+import {toBeiJingTime} from "@utils/dayjs"
+
+const plants = (await getCollection('plants')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 ---
 
 <!doctype html>
@@ -19,11 +26,21 @@ import RootLayout from "@layouts/root-layout.astro";
 			id='navbar+title'
 			class='flex flex-col w-full gap-8 max-w-3xl lowercase'>
 			<Headers />
+
       <h1 class='w-full text-5xl md:text-7xl font-medium tracking-tight'>
         耕录
       </h1>
 
-      <p>🛠 开发中...</p>
+      {
+        plants.map((item) => (
+          <PlantsItem
+            title={item.data.title}
+            date={toBeiJingTime(item.data.pubDate)}
+            slug={item.slug}
+            description={item.data.description}
+          />
+        ))
+      }
 		</div>
 	</RootLayout>
 </html>

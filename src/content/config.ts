@@ -58,4 +58,15 @@ const ship = defineCollection({
   }),
 });
 
-export const collections = { writing, thought, ship, whoami };
+const plants = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
+    readingTime: z.number().optional(),
+  })
+})
+
+export const collections = { writing, thought, ship, whoami, plants };

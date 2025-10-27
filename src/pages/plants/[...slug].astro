@@ -1,0 +1,23 @@
+---
+import PlantsLayout from '@layouts/plants-layout.astro';
+import { ScrollProgress } from '@components/misc';
+import { type CollectionEntry, getCollection } from 'astro:content';
+import { getReadingTime } from '@utils/index';
+
+const posts = await getCollection('plants');
+type Props = CollectionEntry<'plants'>;
+
+const { slug } = Astro.params;
+const post = posts.find((page) => page.slug === slug);
+
+if (!post) return Astro.redirect('/404');
+
+const { Content } = await post.render();
+
+const readingTime = getReadingTime(post.body);
+---
+
+<PlantsLayout {...post.data} readingTime={readingTime} >
+	<Content />
+	<ScrollProgress />
+</PlantsLayout>
